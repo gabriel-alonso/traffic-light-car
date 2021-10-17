@@ -193,8 +193,30 @@ function clearFrame(timerInterval) {
     setTimeout(trafficMovement(timerInterval, position), 320)
 }
 
+function getPositionInitial() {
+    return {
+        carYellow: 0,
+        carGreen: 200,
+        carPink: 670,
+        carOrange: 870,
+        carBlue: 0,
+        carBrown: 200,
+        carRed: 670,
+        carPurple: 870,
+        carPinkDark: 0,
+        carPurpleDark: 200,
+        carGreenDark: 670,
+        carBlueDark: 870,
+        carOrangeDark: 0,
+        carYellowDark: 200,
+        carBrownDark: 670,
+        carRedDark: 870
+    }
+}
+
 
 function firstMovement(timerInterval, position) {
+
     let carYellow = createCar(draw, 'car_topview_yellow.svg');
     let carPink = createCar(draw, 'car_topview_pink.svg');
     let carGreen = createCar(draw, 'car_topview_green.svg');
@@ -241,10 +263,8 @@ function firstMovement(timerInterval, position) {
                             position.carOrange -= 50;
                         } else {
                             if (position.carOrange !== -220) position.carOrange -= 30;
-
                             if (status.carOrange) carOrange.move(300, position.carOrange).rotate(90)
                             else carOrange.move(300, position.carOrange)
-
                             if (position.carOrange !== -220) {
                                 status.carOrange = false;
                                 carOrange.move(300, position.carOrange)
@@ -259,6 +279,8 @@ function firstMovement(timerInterval, position) {
                                 } else {
                                     trafficLightGreenAndYellow();
                                     clearInterval(movement);
+
+                                    let position = getPositionInitial()
                                     trafficMovement(timerInterval, position);
                                 }
                             }
@@ -267,9 +289,10 @@ function firstMovement(timerInterval, position) {
                 }
             }
         }
-
     }, timerInterval);
 }
+
+
 
 function secondMovement(timerInterval, position) {
     let carBlue = createCar(draw, 'car_topview_blue.svg');
@@ -314,7 +337,6 @@ function secondMovement(timerInterval, position) {
                         position.carPurple -= 50;
                     } else {
                         trafficLightRedAndGreen();
-
                         if (position.carPurple !== 370 && status.carPurple) {
                             carPurple.move(300, position.carPurple);
                             position.carPurple -= 50;
@@ -338,6 +360,8 @@ function secondMovement(timerInterval, position) {
                                 } else {
                                     trafficLightGreenAndYellow();
                                     clearInterval(movement);
+
+                                    let position = getPositionInitial()
                                     trafficMovement(timerInterval, position);
                                 }
                             }
@@ -416,6 +440,8 @@ function thirdMovement(timerInterval, position) {
                                 } else {
                                     trafficLightGreenAndYellow();
                                     clearInterval(movement);
+
+                                    let position = getPositionInitial()
                                     trafficMovement(timerInterval, position);
                                 }
                             }
@@ -492,6 +518,8 @@ function fourthMovement(timerInterval, position) {
                                 } else {
                                     trafficLightGreenAndYellow();
                                     clearInterval(movement);
+
+                                    let position = getPositionInitial();
                                     trafficMovement(timerInterval, position);
                                 }
                             }
@@ -512,6 +540,7 @@ function random() {
 
 function trafficMovement(timerInterval, position) {
     let i = random();
+
 
     if (i === 1) firstMovement(timerInterval, position);
     else if (i === 2) secondMovement(timerInterval, position);
