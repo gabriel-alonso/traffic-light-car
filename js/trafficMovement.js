@@ -292,8 +292,6 @@ function firstMovement(timerInterval, position) {
     }, timerInterval);
 }
 
-
-
 function secondMovement(timerInterval, position) {
     let carBlue = createCar(draw, 'car_topview_blue.svg');
     let carBrown = createCar(draw, 'car_topview_brown.svg');
@@ -324,7 +322,9 @@ function secondMovement(timerInterval, position) {
                 if (position.carRed === 520) trafficLightEmptyAndYellow();
             } else {
                 trafficLightGreenAndRed();
+
                 if (position.carBlue !== -900) {
+                    if (position.carBlue === -300) carBlue.move(325, position.carBlue).rotate(-90)
                     status.carBlue = false;
                     carBlue.move(325, position.carBlue)
                     position.carBlue -= 50;
@@ -478,13 +478,15 @@ function fourthMovement(timerInterval, position) {
             position.carOrangeDark -= 50;
         } else {
             trafficLightRedAndGreen();
-            if (position.carBrownDark !== -180) {
+            if (position.carBrownDark !== -230) {
+                if (position.carBrownDark === 320) carBrownDark.move(300, position.carBrownDark).rotate(90)
                 carBrownDark.move(300, position.carBrownDark)
                 position.carBrownDark -= 50;
                 if (position.carBrownDark === 520) trafficLightEmptyAndYellow();
             } else {
                 trafficLightGreenAndRed();
                 if (position.carOrangeDark !== -900) {
+                    if (position.carOrangeDark === -300) carOrangeDark.move(325, position.carOrangeDark).rotate(-90)
                     status.carOrangeDark = false;
                     carOrangeDark.move(325, position.carOrangeDark)
                     position.carOrangeDark -= 50;
@@ -540,7 +542,6 @@ function random() {
 
 function trafficMovement(timerInterval, position) {
     let i = random();
-
 
     if (i === 1) firstMovement(timerInterval, position);
     else if (i === 2) secondMovement(timerInterval, position);
