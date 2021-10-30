@@ -4,7 +4,8 @@
 
 ## 💻 Sobre o projeto
 
-<p>Esse projeto é uma animação de um funcionamento de um Semáforo, realizado durante o curso de Engenharia da Computação na disciplina de Computação Gráfica.</p>
+<p>Esse projeto é uma animação de um funcionamento de um semáforo, realizado durante o curso de Engenharia da Computação na disciplina de Computação Gráfica.</p>
+
 ---
 
 ## ⚙️ Funcionalidades
@@ -21,9 +22,9 @@
 ### Imagens do projeto
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-  <img alt="NextLevelWeek" title="#NextLevelWeek" src="./assets/web.svg" width="400px">
+  <img alt="NextLevelWeek" title="#NextLevelWeek" src="#" width="400px">
 
-  <img alt="NextLevelWeek" title="#NextLevelWeek" src="./assets/sucesso-web.svg" width="400px">
+  <img alt="NextLevelWeek" title="#NextLevelWeek" src="#" width="400px">
 </p>
 
 ---
@@ -59,6 +60,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
  <br />
  <sub><b>Gabriel Alonso</b></sub>
  <br />
+ 
 ---
 
 ## 📝 Licença
@@ -68,7 +70,3 @@ Este projeto esta sobe a licença [MIT](./LICENSE).
 Feito com ❤️ por Gabriel Alonso👋🏽 [Entre em contato!](https://www.linkedin.com/in/alonso-gabriel/)
 
 ---
-
-##  Versões do README
-
-[Português 🇧🇷](./README.md)  |  [Inglês sem emojis 🇺🇸](./README-en.md) | [Portugues sem logo  🇧🇷](./README-sem-logo.md) 
