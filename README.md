@@ -15,7 +15,8 @@
 
 
 ## 💻 Sobre o projeto
-Esse projeto é uma animação de um funcionamento de um Semáforo, realizado durante o curso de Engenharia da Computação na disciplina de Computação Gráfica.
+
+<p>Esse projeto é uma animação de um funcionamento de um Semáforo, realizado durante o curso de Engenharia da Computação na disciplina de Computação Gráfica.</p>
 ---
 
 ## ⚙️ Funcionalidades
