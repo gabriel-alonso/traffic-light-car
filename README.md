@@ -2,18 +2,6 @@
     Traffic Ligth Car
 </h1>
 
-<p align="center">
- <a href="#-sobre-o-projeto">Sobre</a> •
- <a href="#-funcionalidades">Funcionalidades</a> •
- <a href="#-layout">Layout</a> • 
- <a href="#-como-executar-o-projeto">Como executar</a> • 
- <a href="#-tecnologias">Tecnologias</a> • 
- <a href="#-contribuidores">Contribuidores</a> • 
- <a href="#-autor">Autor</a> • 
- <a href="#user-content--licença">Licença</a>
-</p>
-
-
 ## 💻 Sobre o projeto
 
 <p>Esse projeto é uma animação de um funcionamento de um Semáforo, realizado durante o curso de Engenharia da Computação na disciplina de Computação Gráfica.</p>
@@ -67,7 +55,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ---
 
 ## 🦸 Autor
- <img style="border-radius: 50%;" src="#" width="100px;" alt=""/>
+ <img style="border-radius: 50%;" src="https://user-images.githubusercontent.com/25436067/139539673-0901e87c-b021-46bd-b173-795d4ed94e9a.png" width="100px;" alt="Gabriel Alonso"/>
  <br />
  <sub><b>Gabriel Alonso</b></sub>
  <br />
