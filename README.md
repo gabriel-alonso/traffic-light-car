@@ -38,15 +38,6 @@ O layout da aplicação está disponível no Figma:
   <img alt="Made by tgmarinho" src="https://img.shields.io/badge/Acessar%20Layout%20-Figma-%2304D361">
 </a>
 
-
-### Mobile
-
-<p align="center">
-  <img alt="NextLevelWeek" title="#NextLevelWeek" src="./assets/home-mobile.png" width="200px">
-
-  <img alt="NextLevelWeek" title="#NextLevelWeek" src="./assets/detalhes-mobile.svg" width="200px">
-</p>
-
 ### Web
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
@@ -58,69 +49,7 @@ O layout da aplicação está disponível no Figma:
 ---
 
 ## 🚀 Como executar o projeto
-
-Este projeto é divido em três partes:
-1. Backend (pasta server) 
-2. Frontend (pasta web)
-3. Mobile (pasta mobile)
-
-💡Tanto o Frontend quanto o Mobile precisam que o Backend esteja sendo executado para funcionar.
-
-### Pré-requisitos
-
-Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
-Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
-
-#### 🎲 Rodando o Backend (servidor)
-
-```bash
-
-# Clone este repositório
-$ git clone git@github.com:tgmarinho/README-ecoleta.git
-
-# Acesse a pasta do projeto no terminal/cmd
-$ cd README-ecoleta
-
-# Vá para a pasta server
-$ cd server
-
-# Instale as dependências
-$ npm install
-
-# Execute a aplicação em modo de desenvolvimento
-$ npm run dev:server
-
-# O servidor inciará na porta:3333 - acesse http://localhost:3333 
-
-```
-<p align="center">
-  <a href="https://github.com/tgmarinho/README-ecoleta/blob/master/Insomnia_API_Ecoletajson.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
-</p>
-
-
-#### 🧭 Rodando a aplicação web (Frontend)
-
-```bash
-
-# Clone este repositório
-$ git clone git@github.com:tgmarinho/README-ecoleta.git
-
-# Acesse a pasta do projeto no seu terminal/cmd
-$ cd README-ecoleta
-
-# Vá para a pasta da aplicação Front End
-$ cd web
-
-# Instale as dependências
-$ npm install
-
-# Execute a aplicação em modo de desenvolvimento
-$ npm run start
-
-# A aplicação será aberta na porta:3000 - acesse http://localhost:3000
-
-```
+Executar apenas o html.
 
 ---
 
