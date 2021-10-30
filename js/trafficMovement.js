@@ -11,7 +11,9 @@ let color = {
     lightGray: '#e7e7e7'
 }
 
-let timerInterval = 300;
+let timerInterval = 400;
+
+let timerTrafficLight = 2000;
 
 let position = {
     carYellow: 0,
@@ -140,15 +142,34 @@ function trafficLightRedAndGreen() {
     trafficLightGreen2.show();
 }
 
-function trafficLightGreenAndRed() {
-    trafficLightRed1.hide();
+function trafficLightRedAndYellow() {
+    trafficLightRed1.show();
     trafficLightYellow1.hide();
-    trafficLightGreen1.show();
+    trafficLightGreen1.hide();
+
+    trafficLightRed2.hide();
+    trafficLightYellow2.show();
+    trafficLightGreen2.hide();
+}
+
+function trafficLightRedAndRed() {
+    trafficLightRed1.show();
+    trafficLightYellow1.hide();
+    trafficLightGreen1.hide();
 
     trafficLightRed2.show();
     trafficLightYellow2.hide();
     trafficLightGreen2.hide();
+}
 
+function trafficLightGreenAndGreen() {
+    trafficLightRed1.hide();
+    trafficLightYellow1.hide();
+    trafficLightGreen1.show();
+
+    trafficLightRed2.hide();
+    trafficLightYellow2.hide();
+    trafficLightGreen2.show();
 }
 
 function trafficLightGreenAndYellow() {
@@ -161,6 +182,17 @@ function trafficLightGreenAndYellow() {
     trafficLightGreen2.hide();
 }
 
+function trafficLightGreenAndRed() {
+    trafficLightRed1.hide();
+    trafficLightYellow1.hide();
+    trafficLightGreen1.show();
+
+    trafficLightRed2.show();
+    trafficLightYellow2.hide();
+    trafficLightGreen2.hide();
+
+}
+
 function trafficLightYellowAndGreen() {
     trafficLightRed1.hide();
     trafficLightYellow1.show();
@@ -171,13 +203,21 @@ function trafficLightYellowAndGreen() {
     trafficLightGreen2.show();
 }
 
-function trafficLightEmptyAndYellow() {
+function trafficLightYellowAndYellow() {
+    trafficLightRed1.hide();
+    trafficLightYellow1.show();
+    trafficLightGreen1.hide();
+
     trafficLightRed2.hide();
     trafficLightYellow2.show();
     trafficLightGreen2.hide();
 }
 
-function trafficLightEmptyAndRed() {
+function trafficLightYellowAndRed() {
+    trafficLightRed1.hide();
+    trafficLightYellow1.show();
+    trafficLightGreen1.hide();
+
     trafficLightRed2.show();
     trafficLightYellow2.hide();
     trafficLightGreen2.hide();
@@ -214,6 +254,64 @@ function getPositionInitial() {
     }
 }
 
+function yellowCarMovement(carYellow, position, status) {
+    let movementFinal = position.carYellow === -900;
+    if (!movementFinal && status.carYellow) {
+        carYellow.move(325, position.carYellow)
+        position.carYellow -= 50;
+    }
+}
+
+function pinkCarMovement(carPink, position, status) {
+    let movementFinal = position.carPink === -230;
+    if (!movementFinal && status.carPink) {
+        carPink.move(300, position.carPink)
+        position.carPink -= 50;
+    }
+}
+
+function greenCarMovement(carGreen, position, status) {
+    let movementFinal = position.carGreen === -900;
+    if (!movementFinal && status.carGreen) {
+        carGreen.move(325, position.carGreen)
+        position.carGreen -= 50;
+    }
+}
+
+function orangeCarMovement(carOrange, position, status) {
+    let movementFinal = position.carOrange === -330;
+    if (!movementFinal && status.carOrange) {
+        carOrange.move(300, position.carOrange)
+        position.carOrange -= 50;
+
+        if (position.carOrange === 270) carOrange.rotate(90)
+
+    }
+}
+
+function yellowCarStop(status) {
+    status.carYellow = false;
+}
+
+function yellowCarContinue(status) {
+    status.carYellow = true;
+}
+
+function pinkCarStop(status) {
+    status.carPink = false;
+}
+
+function greenCarStop(status) {
+    status.carGreen = false;
+}
+
+function greenCarContinue(status) {
+    status.carGreen = true;
+}
+
+function orangeCarStop(status) {
+    status.carOrange = false;
+}
 
 function firstMovement(timerInterval, position) {
 
@@ -227,67 +325,74 @@ function firstMovement(timerInterval, position) {
     carPink.size(200, 120).move(300, 670);
     carOrange.size(200, 120).move(300, 870);
 
+
     let status = {
         carYellow: true,
+        carPink: true,
         carGreen: true,
         carOrange: true
     }
 
-    movement = setInterval(() => {
-        if (position.carYellow !== -150 && status.carYellow) {
-            carYellow.move(325, position.carYellow)
-            position.carYellow -= 50;
-        } else {
-            trafficLightRedAndGreen();
-            if (position.carPink !== -180) {
-                carPink.move(300, position.carPink)
-                position.carPink -= 50;
-                if (position.carPink === 520) trafficLightEmptyAndYellow();
-            } else {
-                trafficLightGreenAndRed();
-                if (position.carYellow !== -900) {
-                    status.carYellow = false;
-                    carYellow.move(325, position.carYellow)
-                    position.carYellow -= 50;
-                } else {
-                    trafficLightYellowAndGreen();
-                    if (position.carGreen !== -150 && status.carGreen) {
-                        carGreen.move(325, position.carGreen)
-                        carOrange.move(300, position.carOrange)
-                        position.carGreen -= 50;
-                        position.carOrange -= 50;
-                    } else {
-                        trafficLightRedAndGreen();
-                        if (position.carOrange !== 370 && status.carOrange) {
-                            carOrange.move(300, position.carOrange);
-                            position.carOrange -= 50;
-                        } else {
-                            if (position.carOrange !== -220) position.carOrange -= 30;
-                            if (status.carOrange) carOrange.move(300, position.carOrange).rotate(90)
-                            else carOrange.move(300, position.carOrange)
-                            if (position.carOrange !== -220) {
-                                status.carOrange = false;
-                                carOrange.move(300, position.carOrange)
-                                position.carOrange -= 50;
-                            } else {
-                                trafficLightGreenAndYellow();
-                                if (position.carGreen !== -1000) {
-                                    status.carGreen = false;
-                                    trafficLightEmptyAndRed();
-                                    carGreen.move(325, position.carGreen)
-                                    position.carGreen -= 50;
-                                } else {
-                                    trafficLightGreenAndYellow();
-                                    clearInterval(movement);
+    let yellowCarFirstStop = -150;
+    let yellowCarFinalMovement = -900;
+    let pinkCarFirstMovement = 570;
+    let pinkCarFinalMovement = -230;
 
-                                    let position = getPositionInitial()
-                                    trafficMovement(timerInterval, position);
-                                }
-                            }
-                        }
-                    }
+    let greenCarFirstStop = -150;
+    let greenCarFinalMovement = -900;
+    let orangeCarFirstMovement = 870;
+    let orangeCarFinalMovement = -330;
+
+    movement = setInterval(() => {
+        yellowCarMovement(carYellow, position, status);
+        if (position.carYellow === yellowCarFirstStop) {
+            yellowCarStop(status);
+            if (position.carPink > pinkCarFirstMovement) trafficLightRedAndRed();
+            pinkCarMovement(carPink, position, status);
+            if (position.carPink === pinkCarFirstMovement) trafficLightRedAndGreen();
+            if (position.carPink === pinkCarFinalMovement) {
+                if (status.carPink) {
+                    trafficLightRedAndYellow();
+                    setTimeout(function() {
+                        trafficLightRedAndRed();
+                        pinkCarStop(status);
+                        setTimeout(function() {
+                            trafficLightGreenAndRed();
+                            yellowCarContinue(status);
+                        }, timerTrafficLight);
+                    }, timerTrafficLight);
                 }
             }
+        }
+
+
+        if (position.carYellow === yellowCarFinalMovement) {
+            greenCarMovement(carGreen, position, status);
+            if (position.carGreen === 150) trafficLightYellowAndRed();
+            if (position.carGreen === greenCarFirstStop) {
+                greenCarStop(status);
+                if (position.carOrange === 670) trafficLightRedAndRed();
+                orangeCarMovement(carOrange, position, status);
+                if (position.carOrange === 570) trafficLightRedAndGreen();
+                if (position.carOrange === orangeCarFinalMovement && status.carOrange) {
+                    trafficLightRedAndYellow();
+                    orangeCarStop(status);
+                }
+                if (position.carOrange === orangeCarFinalMovement && !status.carOrange) {
+                    setTimeout(function() {
+                        if (!status.carGreen) trafficLightRedAndRed();
+                        setTimeout(function() {
+                            if (!status.carGreen) trafficLightGreenAndRed();
+                            greenCarContinue(status);
+                        }, timerTrafficLight);
+                    }, timerTrafficLight);
+                }
+            }
+        }
+        if (position.carGreen === greenCarFinalMovement) {
+            clearInterval(movement);
+            let position = getPositionInitial()
+            trafficMovement(timerInterval, position);
         }
     }, timerInterval);
 }
@@ -543,10 +648,11 @@ function random() {
 function trafficMovement(timerInterval, position) {
     let i = random();
 
-    if (i === 1) firstMovement(timerInterval, position);
-    else if (i === 2) secondMovement(timerInterval, position);
-    else if (i === 3) thirdMovement(timerInterval, position);
-    else if (i === 4) fourthMovement(timerInterval, position);
+    secondMovement(timerInterval, position);
+    // if (i === 1) firstMovement(timerInterval, position);
+    // else if (i === 2) secondMovement(timerInterval, position);
+    // else if (i === 3) thirdMovement(timerInterval, position);
+    // else if (i === 4) fourthMovement(timerInterval, position);
 }
 
 trafficMovement(timerInterval, position);
