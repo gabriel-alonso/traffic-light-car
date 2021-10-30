@@ -1,8 +1,3 @@
-# traffic-light-car
-Esse projeto é uma animação de um funcionamento de um Semáforo, realizado durante o curso de Engenharia da Computação na disciplina de Computação Gráfica.
-
-
-
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/tgmarinho/README-ecoleta?color=%2304D361">
 
@@ -32,7 +27,7 @@ Esse projeto é uma animação de um funcionamento de um Semáforo, realizado du
  
 </p>
 <h1 align="center">
-    <img alt="NextLevelWeek" title="#NextLevelWeek" src="./assets/banner.png" />
+    Traffic Ligth Car
 </h1>
 
 <h4 align="center"> 
