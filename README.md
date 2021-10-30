@@ -2,10 +2,6 @@
     Traffic Ligth Car
 </h1>
 
-<h4 align="center"> 
-	🚧  Ecoleta ♻️ Concluído 🚀 🚧
-</h4>
-
 <p align="center">
  <a href="#-sobre-o-projeto">Sobre</a> •
  <a href="#-funcionalidades">Funcionalidades</a> •
