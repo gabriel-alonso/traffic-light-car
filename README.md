@@ -22,9 +22,9 @@
 ### Imagens do projeto
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-  <img alt="NextLevelWeek" title="#NextLevelWeek" src="#" width="400px">
+  <img alt="NextLevelWeek" title="Imagem - Traffic Light Car" src="https://user-images.githubusercontent.com/25436067/139605788-4cb17887-4151-4a2c-b19c-b565f605aa17.png" width="400px">
 
-  <img alt="NextLevelWeek" title="#NextLevelWeek" src="#" width="400px">
+  <img alt="NextLevelWeek" title="Imagem - Traffic Light Car" src="https://user-images.githubusercontent.com/25436067/139605825-3fd97082-1ddd-4ced-b93a-1be0be7816b8.png" width="400px">
 </p>
 
 ---
