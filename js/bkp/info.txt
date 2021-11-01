@@ -1,8 +1,0 @@
-// let i = random();
-    // if(i === 1){
-    //     firstMovement(timerFixed, position);
-    // }else if(i === 2){
-    //     secondMovement(timerFixed, position);
-    // }else if(i === 3){
-    //     thirthMovement(timerFixed, position);
-    // }
