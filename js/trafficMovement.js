@@ -4,10 +4,10 @@ let color = {
     lightGreen: '#7CFC00',
     darkGray: '#4c4a4b',
     mediumGray: '#363434',
-    red: 'red',
+    red: '#FF0000',
     black: '#000',
-    yellow: 'yellow',
-    green: 'green',
+    yellow: '#FFFF00',
+    green: '#008000',
     lightGray: '#e7e7e7'
 }
 
@@ -412,7 +412,6 @@ function carContinue(status, car) {
         case 'purpleDark':
             status.carPurpleDark = true;
             break;
-
     }
 }
 
@@ -421,22 +420,22 @@ function carFirstStop(position, carPlace, car) {
 
     switch (car) {
         case 'yellow':
-            condition = position.carYellow === carPlace.firstStop.yellowCar ? true : false;
+            condition = position.carYellow === carPlace.firstStop.yellowCar;
             break;
         case 'green':
-            condition = position.carGreen === carPlace.firstStop.greenCar ? true : false;
+            condition = position.carGreen === carPlace.firstStop.greenCar;
             break;
         case 'blue':
-            condition = position.carBlue === carPlace.firstStop.blueCar ? true : false;
+            condition = position.carBlue === carPlace.firstStop.blueCar;
             break;
         case 'brown':
-            condition = position.carBrown === carPlace.firstStop.brownCar ? true : false;
+            condition = position.carBrown === carPlace.firstStop.brownCar;
             break;
         case 'pinkDark':
-            condition = position.carPinkDark === carPlace.firstStop.pinkDarkCar ? true : false;
+            condition = position.carPinkDark === carPlace.firstStop.pinkDarkCar;
             break;
         case 'purpleDark':
-            condition = position.carPurpleDark === carPlace.firstStop.purpleDarkCar ? true : false;
+            condition = position.carPurpleDark === carPlace.firstStop.purpleDarkCar;
             break;
     }
 
@@ -448,13 +447,13 @@ function carFirstMovement(position, carPlace, car) {
 
     switch (car) {
         case 'pink':
-            condition = position.carPink === carPlace.firstMovement.pinkCar ? true : false;
+            condition = position.carPink === carPlace.firstMovement.pinkCar;
             break;
         case 'green':
-            condition = position.carGreen === carPlace.firstMovement.greenCar ? true : false;
+            condition = position.carGreen === carPlace.firstMovement.greenCar;
             break;
         case 'orange':
-            condition = position.carOrange === carPlace.firstMovement.orangeCar ? true : false;
+            condition = position.carOrange === carPlace.firstMovement.orangeCar;
             break;
     }
 
@@ -466,37 +465,37 @@ function carFinalMovement(position, carPlace, car) {
 
     switch (car) {
         case 'pink':
-            condition = position.carPink === carPlace.finalMovement.pinkCar ? true : false;
+            condition = position.carPink === carPlace.finalMovement.pinkCar;
             break;
         case 'yellow':
-            condition = position.carYellow === carPlace.finalMovement.yellowCar ? true : false;
+            condition = position.carYellow === carPlace.finalMovement.yellowCar;
             break;
         case 'green':
-            condition = position.carGreen === carPlace.finalMovement.greenCar ? true : false;
+            condition = position.carGreen === carPlace.finalMovement.greenCar;
             break;
         case 'red':
-            condition = position.carRed === carPlace.finalMovement.redCar ? true : false;
+            condition = position.carRed === carPlace.finalMovement.redCar;
             break;
         case 'blue':
-            condition = position.carBlue === carPlace.finalMovement.blueCar ? true : false;
+            condition = position.carBlue === carPlace.finalMovement.blueCar;
             break;
         case 'purple':
-            condition = position.carPurple === carPlace.finalMovement.purpleCar ? true : false;
+            condition = position.carPurple === carPlace.finalMovement.purpleCar;
             break;
         case 'brown':
-            condition = position.carBrown === carPlace.finalMovement.brownCar ? true : false;
+            condition = position.carBrown === carPlace.finalMovement.brownCar;
             break;
         case 'greenDark':
-            condition = position.carGreenDark === carPlace.finalMovement.greenDarkCar ? true : false;
+            condition = position.carGreenDark === carPlace.finalMovement.greenDarkCar;
             break;
         case 'pinkDark':
-            condition = position.carPinkDark === carPlace.finalMovement.pinkDarkCar ? true : false;
+            condition = position.carPinkDark === carPlace.finalMovement.pinkDarkCar;
             break;
         case 'blueDark':
-            condition = position.carBlueDark === carPlace.finalMovement.blueDarkCar ? true : false;
+            condition = position.carBlueDark === carPlace.finalMovement.blueDarkCar;
             break;
         case 'purpleDark':
-            condition = position.carPurpleDark === carPlace.finalMovement.purpleDarkCar ? true : false;
+            condition = position.carPurpleDark === carPlace.finalMovement.purpleDarkCar;
             break;
     }
 
@@ -507,31 +506,31 @@ function checkStatusCar(status, car) {
     let condition;
     switch (car) {
         case 'pink':
-            condition = status.carPink ? true : false;
+            condition = status.carPink;
             break;
         case 'blue':
-            condition = status.carBlue ? true : false;
+            condition = status.carBlue;
             break;
         case 'red':
-            condition = status.carRed ? true : false;
+            condition = status.carRed;
             break;
         case 'brown':
-            condition = status.carBrown ? true : false;
+            condition = status.carBrown;
             break;
         case 'purple':
-            condition = status.carPurple ? true : false;
+            condition = status.carPurple;
             break;
         case 'pinkDark':
-            condition = status.carPinkDark ? true : false;
+            condition = status.carPinkDark;
             break;
         case 'greenDark':
-            condition = status.carGreenDark ? true : false;
+            condition = status.carGreenDark;
             break;
         case 'purpleDark':
-            condition = status.carPurpleDark ? true : false;
+            condition = status.carPurpleDark;
             break;
         case 'blueDark':
-            condition = status.carBlueDark ? true : false;
+            condition = status.carBlueDark;
             break;
 
         default:
