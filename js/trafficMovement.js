@@ -473,6 +473,9 @@ function carFinalMovement(position, carPlace, car) {
         case 'green':
             condition = position.carGreen === carPlace.finalMovement.greenCar;
             break;
+        case 'orange':
+            condition = position.carOrange === carPlace.finalMovement.orangeCar;
+            break;
         case 'red':
             condition = position.carRed === carPlace.finalMovement.redCar;
             break;
@@ -644,62 +647,87 @@ function carMovement(position, orderNumber) {
     }
 }
 
+function changeColorTrafficLight(status, count, frame) {
+
+    if (frame === 'first') {
+        switch (status) {
+            case 'RedAndRed':
+                if (count === 3 || count === 30 || count === 56 || count === 91) trafficLightRedAndRed();
+                break;
+            case 'RedAndGreen':
+                if (count === 8 || count === 62) trafficLightRedAndGreen();
+                break;
+            case 'RedAndYellow':
+                if (count === 25 || count === 85) trafficLightRedAndYellow();
+                break;
+            case 'GreenAndRed':
+                if (count === 36 || count === 96) trafficLightGreenAndRed();
+                break;
+            case 'YellowAndRed':
+                if (count === 50) trafficLightYellowAndRed();
+                break;
+        }
+    }
+
+}
 
 
 function firstFrame(carYellow, carGreen, carPink, carOrange, position, status, carPlace) {
+    let count = 0;
     movement = setInterval(() => {
         continueCarTrajectory(carYellow, position, status, 'yellow');
         if (carFirstStop(position, carPlace, 'yellow')) {
             carStop(status, 'yellow');
-            continueCarTrajectory(carPink, position, status, 'pink');
-            if (carFirstMovement(position, carPlace, 'pink')) trafficLightRedAndGreen();
-            if (carFinalMovement(position, carPlace, 'pink')) {
-                if (checkStatusCar(status, 'pink')) {
-                    trafficLightRedAndYellow();
-                    setTimeout(function() {
-                        trafficLightRedAndRed();
-                        carStop(status, 'pink');
-                        setTimeout(function() {
-                            trafficLightGreenAndRed();
-                            carContinue(status, 'yellow');
-                        }, timerTrafficLight);
-                    }, timerTrafficLight);
-                }
-            }
+            changeColorTrafficLight('RedAndRed', count, 'first');
+            setTimeout(() => {
+                changeColorTrafficLight('RedAndGreen', count, 'first');
+                continueCarTrajectory(carPink, position, status, 'pink');
+            }, timerTrafficLight);
         }
 
+        if (carFinalMovement(position, carPlace, 'pink')) {
+            carStop(status, 'pink');
+            changeColorTrafficLight('RedAndYellow', count, 'first');
+            setTimeout(() => {
+                changeColorTrafficLight('RedAndRed', count, 'first');
+                setTimeout(function() {
+                    changeColorTrafficLight('GreenAndRed', count, 'first');
+                    carContinue(status, 'yellow');
+                }, timerTrafficLight);
+            }, timerTrafficLight);
+        }
 
         if (carFinalMovement(position, carPlace, 'yellow')) {
             continueCarTrajectory(carGreen, position, status, 'green');
-            if (carFirstMovement(position, carPlace, 'green')) trafficLightYellowAndRed();
+            changeColorTrafficLight('YellowAndRed', count, 'first');
             if (carFirstStop(position, carPlace, 'green')) {
+                changeColorTrafficLight('RedAndRed', count, 'first');
                 carStop(status, 'green');
-                if (carFirstMovement(position, carPlace, 'orange')) trafficLightRedAndRed();
-                continueCarTrajectory(carOrange, position, status, 'orange');
-                if (position.carOrange === 570) trafficLightRedAndGreen();
-                if (position.carOrange === carPlace.finalMovement.orangeCar && status.carOrange) {
-                    trafficLightRedAndYellow();
-                    carStop(status, 'orange');
-                }
-                if (position.carOrange === carPlace.finalMovement.orangeCar && !status.carOrange) {
-                    setTimeout(function() {
-                        if (!status.carGreen) trafficLightRedAndRed();
-                        setTimeout(function() {
-                            if (!status.carGreen) trafficLightGreenAndRed();
-                            carContinue(status, 'green');
-                        }, timerTrafficLight);
-                    }, timerTrafficLight);
-                }
+                setTimeout(function() {
+                    changeColorTrafficLight('RedAndGreen', count, 'first');
+                    continueCarTrajectory(carOrange, position, status, 'orange');
+                }, timerTrafficLight);
             }
         }
 
+        if (carFinalMovement(position, carPlace, 'orange')) {
+            carStop(status, 'orange');
+            changeColorTrafficLight('RedAndYellow', count, 'first');
+            setTimeout(function() {
+                changeColorTrafficLight('RedAndRed', count, 'first');
+                setTimeout(function() {
+                    changeColorTrafficLight('GreenAndRed', count, 'first');
+                    carContinue(status, 'green');
+                }, timerTrafficLight);
+            }, timerTrafficLight);
+        }
 
         if (carFinalMovement(position, carPlace, 'green')) {
             clearInterval(movement);
             let position = getPositionInitial()
             trafficMovement(position);
         }
-
+        count++;
     }, timerInterval);
 }
 
@@ -829,7 +857,7 @@ function random() {
 
 function trafficMovement(position) {
     let orderNumber = random();
-    carMovement(position, orderNumber);
+    carMovement(position, 1);
 }
 
 trafficMovement(position);
