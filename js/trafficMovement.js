@@ -685,25 +685,25 @@ function changeColorTrafficLight(status, count, frame) {
                 if (count === 59) trafficLightYellowAndRed();
                 break;
         }
-    } // else if (frame === 'third') {
-    //     switch (status) {
-    //         case 'RedAndRed':
-    //             if (count === 2 || count === 31 || count === 56 || count === 99) trafficLightRedAndRed();
-    //             break;
-    //         case 'RedAndGreen':
-    //             if (count === 8 || count === 62) trafficLightRedAndGreen();
-    //             break;
-    //         case 'RedAndYellow':
-    //             if (count === 25 || count === 83) trafficLightRedAndYellow();
-    //             break;
-    //         case 'GreenAndRed':
-    //             if (count === 36 || count === 94) trafficLightGreenAndRed();
-    //             break;
-    //         case 'YellowAndRed':
-    //             if (count === 50) trafficLightYellowAndRed();
-    //             break;
-    //     }
-    // }
+    } else if (frame === 'third') {
+        switch (status) {
+            case 'RedAndRed':
+                if (count === 6 || count === 39 || count === 64 || count === 97) trafficLightRedAndRed();
+                break;
+            case 'RedAndGreen':
+                if (count === 12 || count === 70) trafficLightRedAndGreen();
+                break;
+            case 'RedAndYellow':
+                if (count === 33 || count === 91) trafficLightRedAndYellow();
+                break;
+            case 'GreenAndRed':
+                if (count === 44 || count === 102) trafficLightGreenAndRed();
+                break;
+            case 'YellowAndRed':
+                if (count === 58) trafficLightYellowAndRed();
+                break;
+        }
+    }
 
 }
 
@@ -894,7 +894,7 @@ function random() {
 
 function trafficMovement(position) {
     let orderNumber = random();
-    carMovement(position, 2);
+    carMovement(position, 3);
 }
 
 trafficMovement(position);
