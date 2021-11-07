@@ -16,21 +16,21 @@ let timerInterval = 400;
 let timerTrafficLight = 2000;
 
 let position = {
-    carYellow: 0,
+    carYellow: 200,
     carGreen: 200,
-    carPink: 670,
+    carPink: 870,
     carOrange: 870,
-    carBlue: 0,
+    carBlue: 200,
     carBrown: 200,
-    carRed: 670,
+    carRed: 870,
     carPurple: 870,
-    carPinkDark: 0,
+    carPinkDark: 200,
     carPurpleDark: 200,
-    carGreenDark: 670,
+    carGreenDark: 870,
     carBlueDark: 870,
-    carOrangeDark: 0,
+    carOrangeDark: 200,
     carYellowDark: 200,
-    carBrownDark: 670,
+    carBrownDark: 870,
     carRedDark: 870
 }
 
@@ -235,21 +235,21 @@ function clearFrame() {
 
 function getPositionInitial() {
     return {
-        carYellow: 0,
+        carYellow: 200,
         carGreen: 200,
-        carPink: 670,
+        carPink: 870,
         carOrange: 870,
-        carBlue: 0,
+        carBlue: 200,
         carBrown: 200,
-        carRed: 670,
+        carRed: 870,
         carPurple: 870,
-        carPinkDark: 0,
+        carPinkDark: 200,
         carPurpleDark: 200,
-        carGreenDark: 670,
+        carGreenDark: 870,
         carBlueDark: 870,
-        carOrangeDark: 0,
+        carOrangeDark: 200,
         carYellowDark: 200,
-        carBrownDark: 670,
+        carBrownDark: 870,
         carRedDark: 870
     }
 }
@@ -601,9 +601,9 @@ function carMovement(position, orderNumber) {
             let carGreen = createCar(draw, 'car_topview_green.svg');
             let carOrange = createCar(draw, 'car_topview_orange.svg');
 
-            carYellow.size(200, 120).rotate(90).move(325, 0);
+            carYellow.size(200, 120).rotate(90).move(325, 200);
             carGreen.size(200, 120).rotate(90).move(325, 200);
-            carPink.size(200, 120).move(300, 670);
+            carPink.size(200, 120).move(300, 870);
             carOrange.size(200, 120).move(300, 870);
 
             firstFrame(carYellow, carGreen, carPink, carOrange, position, status, carPlace);
@@ -614,9 +614,9 @@ function carMovement(position, orderNumber) {
             let carRed = createCar(draw, 'car_topview_red.svg');
             let carPurple = createCar(draw, 'car_topview_purple.svg');
 
-            carBlue.size(200, 120).rotate(90).move(325, 0);
+            carBlue.size(200, 120).rotate(90).move(325, 200);
             carBrown.size(200, 120).rotate(90).move(325, 200);
-            carRed.size(200, 120).move(300, 670);
+            carRed.size(200, 120).move(300, 870);
             carPurple.size(200, 120).move(300, 870);
             secondFrame(carBlue, carBrown, carRed, carPurple, position, status, carPlace);
             break;
@@ -626,9 +626,9 @@ function carMovement(position, orderNumber) {
             let carGreenDark = createCar(draw, 'car_topview_green_dark.svg');
             let carBlueDark = createCar(draw, 'car_topview_blue_dark.svg');
 
-            carPinkDark.size(200, 120).rotate(90).move(325, 0);
+            carPinkDark.size(200, 120).rotate(90).move(325, 200);
             carPurpleDark.size(200, 120).rotate(90).move(325, 200);
-            carGreenDark.size(200, 120).move(300, 670);
+            carGreenDark.size(200, 120).move(300, 870);
             carBlueDark.size(200, 120).move(300, 870);
             thirdFrame(carPinkDark, carPurpleDark, carGreenDark, carBlueDark, position, status, carPlace);
             break;
@@ -638,9 +638,9 @@ function carMovement(position, orderNumber) {
             let carBrownDark = createCar(draw, 'car_topview_brown_dark.svg');
             let carRedDark = createCar(draw, 'car_topview_red_dark.svg');
 
-            carOrangeDark.size(200, 120).rotate(90).move(325, 0);
+            carOrangeDark.size(200, 120).rotate(90).move(325, 200);
             carYellowDark.size(200, 120).rotate(90).move(325, 200);
-            carBrownDark.size(200, 120).move(300, 670);
+            carBrownDark.size(200, 120).move(300, 870);
             carRedDark.size(200, 120).move(300, 870);
             fourthFrame(carOrangeDark, carYellowDark, carBrownDark, carRedDark, position, status, carPlace);
             break;
@@ -652,61 +652,60 @@ function changeColorTrafficLight(status, count, frame) {
     if (frame === 'first') {
         switch (status) {
             case 'RedAndRed':
-                if (count === 3 || count === 30 || count === 56 || count === 91) trafficLightRedAndRed();
+                if (count === 6 || count === 39 || count === 64 || count === 99) trafficLightRedAndRed();
                 break;
             case 'RedAndGreen':
-                if (count === 8 || count === 62) trafficLightRedAndGreen();
+                if (count === 12 || count === 70) trafficLightRedAndGreen();
                 break;
             case 'RedAndYellow':
-                if (count === 25 || count === 85) trafficLightRedAndYellow();
+                if (count === 33 || count === 93) trafficLightRedAndYellow();
                 break;
             case 'GreenAndRed':
-                if (count === 36 || count === 96) trafficLightGreenAndRed();
+                if (count === 44 || count === 104) trafficLightGreenAndRed();
                 break;
             case 'YellowAndRed':
-                if (count === 50) trafficLightYellowAndRed();
+                if (count === 58) trafficLightYellowAndRed();
                 break;
         }
-    } else if (frame === 'second') {
-        switch (status) {
-            case 'RedAndRed':
-                if (count === 2 || count === 32 || count === 57 || count === 90) trafficLightRedAndRed();
-                break;
-            case 'RedAndGreen':
-                if (count === 8 || count === 63) trafficLightRedAndGreen();
-                break;
-            case 'RedAndYellow':
-                if (count === 26 || count === 84) trafficLightRedAndYellow();
-                break;
-            case 'GreenAndRed':
-                if (count === 37 || count === 95) trafficLightGreenAndRed();
-                break;
-            case 'YellowAndRed':
-                if (count === 51) trafficLightYellowAndRed();
-                break;
-        }
-    } else if (frame === 'third') {
-        switch (status) {
-            case 'RedAndRed':
-                if (count === 2 || count === 31 || count === 56 || count === 89) trafficLightRedAndRed();
-                break;
-            case 'RedAndGreen':
-                if (count === 8 || count === 62) trafficLightRedAndGreen();
-                break;
-            case 'RedAndYellow':
-                if (count === 25 || count === 83) trafficLightRedAndYellow();
-                break;
-            case 'GreenAndRed':
-                if (count === 36 || count === 94) trafficLightGreenAndRed();
-                break;
-            case 'YellowAndRed':
-                if (count === 50) trafficLightYellowAndRed();
-                break;
-        }
-    }
+    } // else if (frame === 'second') {
+    //     switch (status) {
+    //         case 'RedAndRed':
+    //             if (count === 2 || count === 32 || count === 57 || count === 90) trafficLightRedAndRed();
+    //             break;
+    //         case 'RedAndGreen':
+    //             if (count === 8 || count === 63) trafficLightRedAndGreen();
+    //             break;
+    //         case 'RedAndYellow':
+    //             if (count === 26 || count === 84) trafficLightRedAndYellow();
+    //             break;
+    //         case 'GreenAndRed':
+    //             if (count === 37 || count === 95) trafficLightGreenAndRed();
+    //             break;
+    //         case 'YellowAndRed':
+    //             if (count === 58) trafficLightYellowAndRed();
+    //             break;
+    //     }
+    // } else if (frame === 'third') {
+    //     switch (status) {
+    //         case 'RedAndRed':
+    //             if (count === 2 || count === 31 || count === 56 || count === 99) trafficLightRedAndRed();
+    //             break;
+    //         case 'RedAndGreen':
+    //             if (count === 8 || count === 62) trafficLightRedAndGreen();
+    //             break;
+    //         case 'RedAndYellow':
+    //             if (count === 25 || count === 83) trafficLightRedAndYellow();
+    //             break;
+    //         case 'GreenAndRed':
+    //             if (count === 36 || count === 94) trafficLightGreenAndRed();
+    //             break;
+    //         case 'YellowAndRed':
+    //             if (count === 50) trafficLightYellowAndRed();
+    //             break;
+    //     }
+    // }
 
 }
-
 
 function firstFrame(carYellow, carGreen, carPink, carOrange, position, status, carPlace) {
     let count = 0;
@@ -895,7 +894,7 @@ function random() {
 
 function trafficMovement(position) {
     let orderNumber = random();
-    carMovement(position, orderNumber);
+    carMovement(position, 1);
 }
 
 trafficMovement(position);
