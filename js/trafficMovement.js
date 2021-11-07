@@ -8,8 +8,8 @@ let color = {
     black: '#000',
     yellow: '#FFFF00',
     green: '#008000',
-    lightGray: '#e7e7e7'
-}
+    lightGray: '#e7e7e7',
+};
 
 let timerInterval = 400;
 
@@ -31,15 +31,14 @@ let position = {
     carOrangeDark: 200,
     carYellowDark: 200,
     carBrownDark: 870,
-    carRedDark: 870
-}
+    carRedDark: 870,
+};
 
 function createTheGrass(draw) {
     draw.rect(800, 900).move(0, 0).fill(color.lightGray);
 }
 
 function createTheStreet(draw) {
-
     draw.rect(209, 800).move(290, 0).fill(color.darkGray); // Vertical
     draw.rect(800, 209).move(0, 290).fill(color.darkGray); // Horizontal
 
@@ -110,7 +109,6 @@ trafficLightGreen.marker('end', 200, 300, function(add) {
     add.circle(25).center(150, 80).fill(color.green);
 });
 
-
 /* Semaforo de cima */
 trafficLightRed1 = draw.use(trafficLightRed);
 trafficLightRed1.move(163, 320);
@@ -130,7 +128,6 @@ trafficLightYellow2.hide();
 trafficLightGreen2 = draw.use(trafficLightGreen);
 trafficLightGreen2.move(530, 630);
 trafficLightGreen2.hide();
-
 
 function trafficLightRedAndGreen() {
     trafficLightRed1.show();
@@ -190,7 +187,6 @@ function trafficLightGreenAndRed() {
     trafficLightRed2.show();
     trafficLightYellow2.hide();
     trafficLightGreen2.hide();
-
 }
 
 function trafficLightYellowAndGreen() {
@@ -223,16 +219,6 @@ function trafficLightYellowAndRed() {
     trafficLightGreen2.hide();
 }
 
-function clearFrame() {
-    let position = {
-        carYellow: 0,
-        carGreen: 200,
-        carPink: 670,
-        carOrange: 870
-    }
-    setTimeout(trafficMovement(position), 320)
-}
-
 function getPositionInitial() {
     return {
         carYellow: 200,
@@ -250,8 +236,8 @@ function getPositionInitial() {
         carOrangeDark: 200,
         carYellowDark: 200,
         carBrownDark: 870,
-        carRedDark: 870
-    }
+        carRedDark: 870,
+    };
 }
 
 function continueCarTrajectory(car, position, status, type) {
@@ -260,94 +246,93 @@ function continueCarTrajectory(car, position, status, type) {
         case 'yellow':
             movementFinal = position.carYellow === -900;
             if (!movementFinal && status.carYellow) {
-                car.move(325, position.carYellow)
+                car.move(325, position.carYellow);
                 position.carYellow -= 50;
             }
             break;
         case 'pink':
             movementFinal = position.carPink === -230;
             if (!movementFinal && status.carPink) {
-                car.move(300, position.carPink)
+                car.move(300, position.carPink);
                 position.carPink -= 50;
             }
             break;
         case 'green':
             movementFinal = position.carGreen === -900;
             if (!movementFinal && status.carGreen) {
-                car.move(325, position.carGreen)
+                car.move(325, position.carGreen);
                 position.carGreen -= 50;
             }
             break;
         case 'orange':
             movementFinal = position.carOrange === -330;
             if (!movementFinal && status.carOrange) {
-                car.move(300, position.carOrange)
+                car.move(300, position.carOrange);
                 position.carOrange -= 50;
-                if (position.carOrange === 270) car.rotate(90)
+                if (position.carOrange === 270) car.rotate(90);
             }
             break;
         case 'blue':
             movementFinal = position.carBlue === -900;
             if (!movementFinal && status.carBlue) {
-                car.move(325, position.carBlue)
+                car.move(325, position.carBlue);
                 position.carBlue -= 50;
-                if (position.carBlue === -350) car.rotate(-90)
+                if (position.carBlue === -350) car.rotate(-90);
             }
             break;
         case 'red':
             movementFinal = position.carRed === -900;
             if (!movementFinal && status.carRed) {
-                car.move(300, position.carRed)
+                car.move(300, position.carRed);
                 position.carRed -= 50;
-                if (position.carRed === 270) car.rotate(90)
+                if (position.carRed === 270) car.rotate(90);
             }
             break;
         case 'brown':
             movementFinal = position.carBrown === -900;
             if (!movementFinal && status.carBrown) {
-                car.move(325, position.carBrown)
+                car.move(325, position.carBrown);
                 position.carBrown -= 50;
-                if (position.carBrown === 270) car.rotate(90)
+                if (position.carBrown === 270) car.rotate(90);
             }
             break;
         case 'purple':
             movementFinal = position.carPurple === -230;
             if (!movementFinal && status.carPurple) {
-                car.move(300, position.carPurple)
+                car.move(300, position.carPurple);
                 position.carPurple -= 50;
             }
             break;
         case 'pinkDark':
             movementFinal = position.carPinkDark === -900;
             if (!movementFinal && status.carPinkDark) {
-                car.move(325, position.carPinkDark)
+                car.move(325, position.carPinkDark);
                 position.carPinkDark -= 50;
             }
             break;
         case 'greenDark':
             movementFinal = position.carGreenDark === -900;
             if (!movementFinal && status.carGreenDark) {
-                car.move(300, position.carGreenDark)
+                car.move(300, position.carGreenDark);
                 position.carGreenDark -= 50;
             }
             break;
         case 'purpleDark':
             movementFinal = position.carPurpleDark === -900;
             if (!movementFinal && status.carPurpleDark) {
-                car.move(325, position.carPurpleDark)
+                car.move(325, position.carPurpleDark);
                 position.carPurpleDark -= 50;
-                if (position.carPurpleDark === 270) car.rotate(90)
+                if (position.carPurpleDark === 270) car.rotate(90);
             }
             break;
         case 'blueDark':
             movementFinal = position.carBlueDark === -230;
             if (!movementFinal && status.carBlueDark) {
-                car.move(300, position.carBlueDark)
+                car.move(300, position.carBlueDark);
                 position.carBlueDark -= 50;
             }
             break;
     }
-
 }
 
 function carStop(status, car) {
@@ -386,7 +371,6 @@ function carStop(status, car) {
             status.carPurpleDark = false;
             break;
     }
-
 }
 
 function carContinue(status, car) {
@@ -442,24 +426,6 @@ function carFirstStop(position, carPlace, car) {
     return condition;
 }
 
-function carFirstMovement(position, carPlace, car) {
-    let condition;
-
-    switch (car) {
-        case 'pink':
-            condition = position.carPink === carPlace.firstMovement.pinkCar;
-            break;
-        case 'green':
-            condition = position.carGreen === carPlace.firstMovement.greenCar;
-            break;
-        case 'orange':
-            condition = position.carOrange === carPlace.firstMovement.orangeCar;
-            break;
-    }
-
-    return condition;
-}
-
 function carFinalMovement(position, carPlace, car) {
     let condition;
 
@@ -505,44 +471,6 @@ function carFinalMovement(position, carPlace, car) {
     return condition;
 }
 
-function checkStatusCar(status, car) {
-    let condition;
-    switch (car) {
-        case 'pink':
-            condition = status.carPink;
-            break;
-        case 'blue':
-            condition = status.carBlue;
-            break;
-        case 'red':
-            condition = status.carRed;
-            break;
-        case 'brown':
-            condition = status.carBrown;
-            break;
-        case 'purple':
-            condition = status.carPurple;
-            break;
-        case 'pinkDark':
-            condition = status.carPinkDark;
-            break;
-        case 'greenDark':
-            condition = status.carGreenDark;
-            break;
-        case 'purpleDark':
-            condition = status.carPurpleDark;
-            break;
-        case 'blueDark':
-            condition = status.carBlueDark;
-            break;
-
-        default:
-            break;
-    }
-
-    return condition;
-}
-
 function carMovement(position, orderNumber) {
     let status = {
         carYellow: true,
@@ -560,8 +488,8 @@ function carMovement(position, orderNumber) {
         carOrangeDark: true,
         carYellowDark: true,
         carBrownDark: true,
-        carRedDark: true
-    }
+        carRedDark: true,
+    };
 
     let carPlace = {
         firstStop: {
@@ -571,12 +499,6 @@ function carMovement(position, orderNumber) {
             brownCar: -150,
             pinkDarkCar: -150,
             purpleDarkCar: -150,
-        },
-        firstMovement: {
-            pinkCar: 570,
-            orangeCar: 870,
-            carGreen: 200,
-            greenDarkCar: 570,
         },
         finalMovement: {
             yellowCar: -900,
@@ -590,9 +512,9 @@ function carMovement(position, orderNumber) {
             greenDarkCar: -230,
             pinkDarkCar: -900,
             purpleDarkCar: -900,
-            blueDarkCar: -230
-        }
-    }
+            blueDarkCar: -230,
+        },
+    };
 
     switch (orderNumber) {
         case 1:
@@ -618,6 +540,7 @@ function carMovement(position, orderNumber) {
             carBrown.size(200, 120).rotate(90).move(325, 200);
             carRed.size(200, 120).move(300, 870);
             carPurple.size(200, 120).move(300, 870);
+
             secondFrame(carBlue, carBrown, carRed, carPurple, position, status, carPlace);
             break;
         case 3:
@@ -630,25 +553,13 @@ function carMovement(position, orderNumber) {
             carPurpleDark.size(200, 120).rotate(90).move(325, 200);
             carGreenDark.size(200, 120).move(300, 870);
             carBlueDark.size(200, 120).move(300, 870);
-            thirdFrame(carPinkDark, carPurpleDark, carGreenDark, carBlueDark, position, status, carPlace);
-            break;
-        case 4:
-            let carOrangeDark = createCar(draw, 'car_topview_orange_dark.svg');
-            let carYellowDark = createCar(draw, 'car_topview_yellow_dark.svg');
-            let carBrownDark = createCar(draw, 'car_topview_brown_dark.svg');
-            let carRedDark = createCar(draw, 'car_topview_red_dark.svg');
 
-            carOrangeDark.size(200, 120).rotate(90).move(325, 200);
-            carYellowDark.size(200, 120).rotate(90).move(325, 200);
-            carBrownDark.size(200, 120).move(300, 870);
-            carRedDark.size(200, 120).move(300, 870);
-            fourthFrame(carOrangeDark, carYellowDark, carBrownDark, carRedDark, position, status, carPlace);
+            thirdFrame(carPinkDark, carPurpleDark, carGreenDark, carBlueDark, position, status, carPlace);
             break;
     }
 }
 
 function changeColorTrafficLight(status, count, frame) {
-
     if (frame === 'first') {
         switch (status) {
             case 'RedAndRed':
@@ -704,7 +615,6 @@ function changeColorTrafficLight(status, count, frame) {
                 break;
         }
     }
-
 }
 
 function firstFrame(carYellow, carGreen, carPink, carOrange, position, status, carPlace) {
@@ -760,7 +670,7 @@ function firstFrame(carYellow, carGreen, carPink, carOrange, position, status, c
         if (carFinalMovement(position, carPlace, 'green')) {
             changeColorTrafficLight('YellowAndRed', count, 'first');
             clearInterval(movement);
-            let position = getPositionInitial()
+            let position = getPositionInitial();
             trafficMovement(position);
         }
         count++;
@@ -820,7 +730,7 @@ function secondFrame(carBlue, carBrown, carRed, carPurple, position, status, car
         if (carFinalMovement(position, carPlace, 'brown')) {
             changeColorTrafficLight('YellowAndRed', count, 'second');
             clearInterval(movement);
-            let position = getPositionInitial()
+            let position = getPositionInitial();
             trafficMovement(position);
         }
 
@@ -828,7 +738,15 @@ function secondFrame(carBlue, carBrown, carRed, carPurple, position, status, car
     }, timerInterval);
 }
 
-function thirdFrame(carPinkDark, carPurpleDark, carGreenDark, carBlueDark, position, status, carPlace) {
+function thirdFrame(
+    carPinkDark,
+    carPurpleDark,
+    carGreenDark,
+    carBlueDark,
+    position,
+    status,
+    carPlace
+) {
     let count = 0;
     movement = setInterval(() => {
         continueCarTrajectory(carPinkDark, position, status, 'pinkDark');
@@ -881,7 +799,7 @@ function thirdFrame(carPinkDark, carPurpleDark, carGreenDark, carBlueDark, posit
         if (carFinalMovement(position, carPlace, 'purpleDark')) {
             changeColorTrafficLight('YellowAndRed', count, 'third');
             clearInterval(movement);
-            let position = getPositionInitial()
+            let position = getPositionInitial();
             trafficMovement(position);
         }
 
