@@ -9,6 +9,7 @@ let color = {
     yellow: '#FFFF00',
     green: '#008000',
     lightGray: '#e7e7e7',
+    white: '#FFFFFF'
 };
 
 let timerInterval = 400;
@@ -43,39 +44,39 @@ function createTheStreet(draw) {
     draw.rect(800, 209).move(0, 290).fill(color.darkGray); // Horizontal
 
     // Vertical - Faixa Amarela
-    draw.rect(20, 80).center(400, 20).fill('yellow');
-    draw.rect(20, 80).center(400, 150).fill('yellow');
-    draw.rect(20, 80).center(400, 670).fill('yellow');
-    draw.rect(20, 80).center(400, 800).fill('yellow');
+    draw.rect(20, 80).center(400, 20).fill(color.yellow);
+    draw.rect(20, 80).center(400, 150).fill(color.yellow);
+    draw.rect(20, 80).center(400, 670).fill(color.yellow);
+    draw.rect(20, 80).center(400, 800).fill(color.yellow);
 
     // Horizontal - Faixa Amarela
-    draw.rect(80, 20).center(40, 390).fill('yellow');
-    draw.rect(80, 20).center(170, 390).fill('yellow');
-    draw.rect(80, 20).center(560, 390).fill('yellow');
-    draw.rect(80, 20).center(690, 390).fill('yellow');
-    draw.rect(80, 20).center(820, 390).fill('yellow');
+    draw.rect(80, 20).center(40, 390).fill(color.yellow);
+    draw.rect(80, 20).center(170, 390).fill(color.yellow);
+    draw.rect(80, 20).center(560, 390).fill(color.yellow);
+    draw.rect(80, 20).center(690, 390).fill(color.yellow);
+    draw.rect(80, 20).center(820, 390).fill(color.yellow);
 
     // Faixa de Pedreste - Horizontal - Cima
-    draw.rect(15, 50).center(314, 250).fill('white');
-    draw.rect(15, 50).center(334, 250).fill('white');
-    draw.rect(15, 50).center(354, 250).fill('white');
-    draw.rect(15, 50).center(374, 250).fill('white');
-    draw.rect(15, 50).center(394, 250).fill('white');
-    draw.rect(15, 50).center(414, 250).fill('white');
-    draw.rect(15, 50).center(434, 250).fill('white');
-    draw.rect(15, 50).center(454, 250).fill('white');
-    draw.rect(15, 50).center(474, 250).fill('white');
+    draw.rect(15, 50).center(314, 250).fill(color.white);
+    draw.rect(15, 50).center(334, 250).fill(color.white);
+    draw.rect(15, 50).center(354, 250).fill(color.white);
+    draw.rect(15, 50).center(374, 250).fill(color.white);
+    draw.rect(15, 50).center(394, 250).fill(color.white);
+    draw.rect(15, 50).center(414, 250).fill(color.white);
+    draw.rect(15, 50).center(434, 250).fill(color.white);
+    draw.rect(15, 50).center(454, 250).fill(color.white);
+    draw.rect(15, 50).center(474, 250).fill(color.white);
 
     // Faixa de Pedreste - Horizontal - Baixo
-    draw.rect(15, 50).center(314, 540).fill('white');
-    draw.rect(15, 50).center(334, 540).fill('white');
-    draw.rect(15, 50).center(354, 540).fill('white');
-    draw.rect(15, 50).center(374, 540).fill('white');
-    draw.rect(15, 50).center(394, 540).fill('white');
-    draw.rect(15, 50).center(414, 540).fill('white');
-    draw.rect(15, 50).center(434, 540).fill('white');
-    draw.rect(15, 50).center(454, 540).fill('white');
-    draw.rect(15, 50).center(474, 540).fill('white');
+    draw.rect(15, 50).center(314, 540).fill(color.white);
+    draw.rect(15, 50).center(334, 540).fill(color.white);
+    draw.rect(15, 50).center(354, 540).fill(color.white);
+    draw.rect(15, 50).center(374, 540).fill(color.white);
+    draw.rect(15, 50).center(394, 540).fill(color.white);
+    draw.rect(15, 50).center(414, 540).fill(color.white);
+    draw.rect(15, 50).center(434, 540).fill(color.white);
+    draw.rect(15, 50).center(454, 540).fill(color.white);
+    draw.rect(15, 50).center(474, 540).fill(color.white);
 }
 
 function createCar(draw, image) {
@@ -428,7 +429,6 @@ function carFirstStop(position, carPlace, car) {
 
 function carFinalMovement(position, carPlace, car) {
     let condition;
-
     switch (car) {
         case 'pink':
             condition = position.carPink === carPlace.finalMovement.pinkCar;
