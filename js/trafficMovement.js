@@ -667,25 +667,25 @@ function changeColorTrafficLight(status, count, frame) {
                 if (count === 58) trafficLightYellowAndRed();
                 break;
         }
-    } // else if (frame === 'second') {
-    //     switch (status) {
-    //         case 'RedAndRed':
-    //             if (count === 2 || count === 32 || count === 57 || count === 90) trafficLightRedAndRed();
-    //             break;
-    //         case 'RedAndGreen':
-    //             if (count === 8 || count === 63) trafficLightRedAndGreen();
-    //             break;
-    //         case 'RedAndYellow':
-    //             if (count === 26 || count === 84) trafficLightRedAndYellow();
-    //             break;
-    //         case 'GreenAndRed':
-    //             if (count === 37 || count === 95) trafficLightGreenAndRed();
-    //             break;
-    //         case 'YellowAndRed':
-    //             if (count === 58) trafficLightYellowAndRed();
-    //             break;
-    //     }
-    // } else if (frame === 'third') {
+    } else if (frame === 'second') {
+        switch (status) {
+            case 'RedAndRed':
+                if (count === 6 || count === 40 || count === 65 || count === 98) trafficLightRedAndRed();
+                break;
+            case 'RedAndGreen':
+                if (count === 12 || count === 71) trafficLightRedAndGreen();
+                break;
+            case 'RedAndYellow':
+                if (count === 34 || count === 92) trafficLightRedAndYellow();
+                break;
+            case 'GreenAndRed':
+                if (count === 45 || count === 103) trafficLightGreenAndRed();
+                break;
+            case 'YellowAndRed':
+                if (count === 59) trafficLightYellowAndRed();
+                break;
+        }
+    } // else if (frame === 'third') {
     //     switch (status) {
     //         case 'RedAndRed':
     //             if (count === 2 || count === 31 || count === 56 || count === 99) trafficLightRedAndRed();
@@ -894,7 +894,7 @@ function random() {
 
 function trafficMovement(position) {
     let orderNumber = random();
-    carMovement(position, 1);
+    carMovement(position, 2);
 }
 
 trafficMovement(position);
