@@ -701,7 +701,7 @@ function frame(
             changeColorTrafficLight('RedAndYellow', step, type);
             setTimeout(() => {
                 changeColorTrafficLight('RedAndRed', step, type);
-                setTimeout(function() {
+                setTimeout(() => {
                     changeColorTrafficLight('GreenAndRed', step, type);
                     carContinue(status, nameColor1);
                 }, timerTrafficLight);
@@ -714,7 +714,7 @@ function frame(
             if (carFirstStop(position, carPlace, nameColor3)) {
                 changeColorTrafficLight('RedAndRed', step, type);
                 carStop(status, nameColor3);
-                setTimeout(function() {
+                setTimeout(() => {
                     changeColorTrafficLight('RedAndGreen', step, type);
                     continueCarTrajectory(car4, position, status, nameColor4);
                 }, timerTrafficLight);
@@ -724,9 +724,9 @@ function frame(
         if (carFinalMovement(position, carPlace, nameColor4)) {
             carStop(status, nameColor4);
             changeColorTrafficLight('RedAndYellow', step, type);
-            setTimeout(function() {
+            setTimeout(() => {
                 changeColorTrafficLight('RedAndRed', step, type);
-                setTimeout(function() {
+                setTimeout(() => {
                     changeColorTrafficLight('GreenAndRed', step, type);
                     carContinue(status, nameColor3);
                 }, timerTrafficLight);
