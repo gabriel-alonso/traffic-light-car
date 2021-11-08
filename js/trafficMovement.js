@@ -35,7 +35,7 @@ let position = {
     carRedDark: 870,
 };
 
-function createTheGrass(draw) {
+function createTheFloor(draw) {
     draw.rect(800, 900).move(0, 0).fill(color.lightGray);
 }
 
@@ -83,7 +83,7 @@ function createCar(draw, image) {
     return draw.image(`./img/${image}`);
 }
 
-createTheGrass(draw);
+createTheFloor(draw);
 createTheStreet(draw);
 
 let trafficLightRed = draw.path();
