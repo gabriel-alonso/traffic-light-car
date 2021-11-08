@@ -402,7 +402,6 @@ function carContinue(status, car) {
 
 function carFirstStop(position, carPlace, car) {
     let condition;
-
     switch (car) {
         case 'yellow':
             condition = position.carYellow === carPlace.firstStop.yellowCar;
@@ -471,59 +470,59 @@ function carFinalMovement(position, carPlace, car) {
     return condition;
 }
 
-function changeColorTrafficLight(status, count, frame) {
+function changeColorTrafficLight(status, step, frame) {
     if (frame === 'first') {
         switch (status) {
             case 'RedAndRed':
-                if (count === 6 || count === 39 || count === 64 || count === 99) trafficLightRedAndRed();
+                if (step === 6 || step === 39 || step === 64 || step === 99) trafficLightRedAndRed();
                 break;
             case 'RedAndGreen':
-                if (count === 12 || count === 70) trafficLightRedAndGreen();
+                if (step === 12 || step === 70) trafficLightRedAndGreen();
                 break;
             case 'RedAndYellow':
-                if (count === 33 || count === 93) trafficLightRedAndYellow();
+                if (step === 33 || step === 93) trafficLightRedAndYellow();
                 break;
             case 'GreenAndRed':
-                if (count === 44 || count === 104) trafficLightGreenAndRed();
+                if (step === 44 || step === 104) trafficLightGreenAndRed();
                 break;
             case 'YellowAndRed':
-                if (count === 58 || count === 118) trafficLightYellowAndRed();
+                if (step === 58 || step === 118) trafficLightYellowAndRed();
                 break;
         }
     } else if (frame === 'second') {
         switch (status) {
             case 'RedAndRed':
-                if (count === 6 || count === 40 || count === 65 || count === 98) trafficLightRedAndRed();
+                if (step === 6 || step === 40 || step === 65 || step === 98) trafficLightRedAndRed();
                 break;
             case 'RedAndGreen':
-                if (count === 12 || count === 71) trafficLightRedAndGreen();
+                if (step === 12 || step === 71) trafficLightRedAndGreen();
                 break;
             case 'RedAndYellow':
-                if (count === 34 || count === 92) trafficLightRedAndYellow();
+                if (step === 34 || step === 92) trafficLightRedAndYellow();
                 break;
             case 'GreenAndRed':
-                if (count === 45 || count === 103) trafficLightGreenAndRed();
+                if (step === 45 || step === 103) trafficLightGreenAndRed();
                 break;
             case 'YellowAndRed':
-                if (count === 59 || count === 117) trafficLightYellowAndRed();
+                if (step === 59 || step === 117) trafficLightYellowAndRed();
                 break;
         }
     } else if (frame === 'third') {
         switch (status) {
             case 'RedAndRed':
-                if (count === 6 || count === 39 || count === 64 || count === 97) trafficLightRedAndRed();
+                if (step === 6 || step === 39 || step === 64 || step === 97) trafficLightRedAndRed();
                 break;
             case 'RedAndGreen':
-                if (count === 12 || count === 70) trafficLightRedAndGreen();
+                if (step === 12 || step === 70) trafficLightRedAndGreen();
                 break;
             case 'RedAndYellow':
-                if (count === 33 || count === 91) trafficLightRedAndYellow();
+                if (step === 33 || step === 91) trafficLightRedAndYellow();
                 break;
             case 'GreenAndRed':
-                if (count === 44 || count === 102) trafficLightGreenAndRed();
+                if (step === 44 || step === 102) trafficLightGreenAndRed();
                 break;
             case 'YellowAndRed':
-                if (count === 58 || count === 116) trafficLightYellowAndRed();
+                if (step === 58 || step === 116) trafficLightYellowAndRed();
                 break;
         }
     }
@@ -685,25 +684,25 @@ function frame(
     nameColor4,
     type
 ) {
-    let count = 0;
+    let step = 0;
     movement = setInterval(() => {
         continueCarTrajectory(car1, position, status, nameColor1);
         if (carFirstStop(position, carPlace, nameColor1)) {
             carStop(status, nameColor1);
-            changeColorTrafficLight('RedAndRed', count, type);
+            changeColorTrafficLight('RedAndRed', step, type);
             setTimeout(() => {
-                changeColorTrafficLight('RedAndGreen', count, type);
+                changeColorTrafficLight('RedAndGreen', step, type);
                 continueCarTrajectory(car2, position, status, nameColor2);
             }, timerTrafficLight);
         }
 
         if (carFinalMovement(position, carPlace, nameColor2)) {
             carStop(status, nameColor2);
-            changeColorTrafficLight('RedAndYellow', count, type);
+            changeColorTrafficLight('RedAndYellow', step, type);
             setTimeout(() => {
-                changeColorTrafficLight('RedAndRed', count, type);
+                changeColorTrafficLight('RedAndRed', step, type);
                 setTimeout(function() {
-                    changeColorTrafficLight('GreenAndRed', count, type);
+                    changeColorTrafficLight('GreenAndRed', step, type);
                     carContinue(status, nameColor1);
                 }, timerTrafficLight);
             }, timerTrafficLight);
@@ -711,12 +710,12 @@ function frame(
 
         if (carFinalMovement(position, carPlace, nameColor1)) {
             continueCarTrajectory(car3, position, status, nameColor3);
-            changeColorTrafficLight('YellowAndRed', count, type);
+            changeColorTrafficLight('YellowAndRed', step, type);
             if (carFirstStop(position, carPlace, nameColor3)) {
-                changeColorTrafficLight('RedAndRed', count, type);
+                changeColorTrafficLight('RedAndRed', step, type);
                 carStop(status, nameColor3);
                 setTimeout(function() {
-                    changeColorTrafficLight('RedAndGreen', count, type);
+                    changeColorTrafficLight('RedAndGreen', step, type);
                     continueCarTrajectory(car4, position, status, nameColor4);
                 }, timerTrafficLight);
             }
@@ -724,11 +723,11 @@ function frame(
 
         if (carFinalMovement(position, carPlace, nameColor4)) {
             carStop(status, nameColor4);
-            changeColorTrafficLight('RedAndYellow', count, type);
+            changeColorTrafficLight('RedAndYellow', step, type);
             setTimeout(function() {
-                changeColorTrafficLight('RedAndRed', count, type);
+                changeColorTrafficLight('RedAndRed', step, type);
                 setTimeout(function() {
-                    changeColorTrafficLight('GreenAndRed', count, type);
+                    changeColorTrafficLight('GreenAndRed', step, type);
                     carContinue(status, nameColor3);
                 }, timerTrafficLight);
             }, timerTrafficLight);
@@ -736,13 +735,13 @@ function frame(
 
         if (carFinalMovement(position, carPlace, nameColor3)) {
             carStop(status, nameColor3);
-            changeColorTrafficLight('YellowAndRed', count, type);
+            changeColorTrafficLight('YellowAndRed', step, type);
             clearInterval(movement);
             location.reload();
             let position = getPositionInitial();
             trafficMovement(position);
         }
-        count++;
+        step++;
     }, timerInterval);
 }
 
